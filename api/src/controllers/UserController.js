@@ -1,5 +1,5 @@
 const UserService = require('../services/user');
-
+const AdminService = require('../services/admin');
 class UserController {
     async show(req, res) {
         const { id } = req.params;
@@ -12,17 +12,22 @@ class UserController {
     async store(req, res) {
         const { email, username, password } = req.body;
 
-        const response = await UserService.registerUser({
-            user: { email, username, password },
-        });
+        const { id } = await AdminService.GenerateUserID({
+            email
+        })
 
-        return res.json(response);
+        if (id) {
+            const response = await UserService.registerUser({
+                id, email, username, password
+            });
+            return res.json(response);
+        }
     }
 
     async delete(req, res) {
         const { id } = req.body;
 
-        const response = await UserService.deleteUser({id});
+        const response = await UserService.deleteUser({ id });
 
         return res.json(response);
     }

@@ -7,8 +7,9 @@ Aluno: Flávio Vezono Filho - 11921BCC014
 ## Installation
 
 - É preciso ter o node instalado (v16.15.1)
-- Execute um ``` npm install``` / ``` yarn``` dentro da pasta ```api``` ```./grpc/admin/``` ```./grpc/users``` 
 - É necessario criar um docker com mongoose para conectar com a api
+- Execute um ``` npm install``` / ``` yarn``` dentro da pasta ```./api``` ```./grpc/```
+- Em ambas as pastas, execute ``` yarn dev```
 
 
 ```bash

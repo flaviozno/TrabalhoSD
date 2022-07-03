@@ -19,7 +19,7 @@ module.exports = {
     },
 
     async registerUser(call, callback) {
-        const { email, username, password } = call.request.user;
+        const { id, email, username, password } = call.request;
 
         if (email) {
             const response = await User.find({ email: email });
@@ -27,9 +27,10 @@ module.exports = {
                 return callback(null, { error: 'This email already exists' });
             }
             else {
-                const user = await User.create({ email, username, password })
+                const user = await User.create({ id, email, username, password })
 
-                return callback(null, { user: { ...user.toObject(), id: user._id } });
+
+                return callback(null, { ...user.toObject() });
             }
         }
     },
@@ -81,16 +82,6 @@ module.exports = {
             return callback(null, { error: 'Token invalid' });
         }
     },
-    async deleteUser(call, callback) {
-        const id = call.request.id;
-
-        const response = await User.findOneAndRemove({ _id: id })
-
-        if (response !== null)
-            return callback(null, { response })
-        else
-            return callback(null, { error: "User not found" })
-    },
     async updateUser(call, callback) {
         const { email, username, password } = call.request;
 
@@ -118,7 +109,6 @@ module.exports = {
         })
 
         return callback(null, { findUser });
-
 
     }
 }

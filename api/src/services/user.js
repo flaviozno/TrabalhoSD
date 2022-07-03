@@ -1,4 +1,4 @@
-const load = require('../proto/loader');
+const load = require('../proto/loader/USERindex');
 
 const ServiceClient = load({
     serviceName: 'UserService',

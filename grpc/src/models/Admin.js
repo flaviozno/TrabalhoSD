@@ -2,25 +2,25 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
-const UserSchema = new mongoose.Schema({
+const AdminSchema = new mongoose.Schema({
     email: String,
     username: String,
     password: String,
 });
 
-UserSchema.pre('save', async function (next) {
+AdminSchema.pre('save', async function (next) {
     if (!this.isModified('password')) next();
 
     this.password = await bcrypt.hash(this.password, 8);
 });
 
-UserSchema.methods = {
+AdminSchema.methods = {
     compareHash(hash) {
         return bcrypt.compare(hash, this.password);
     },
 };
 
-UserSchema.statics = {
+AdminSchema.statics = {
     generateToken({ id }) {
         return jwt.sign({ id }, 'flaviozno', {
             expiresIn: '7d',
@@ -28,4 +28,4 @@ UserSchema.statics = {
     },
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('Admin', AdminSchema);

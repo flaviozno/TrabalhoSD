@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+message Admin {
+    string id = 1;
+    string email = 2;
+    string username = 3;
+    string password = 4;
+}
+
+message GetAdminByIdRequest {
+    string id = 1;
+}
+
+message RegisterAdminRequest{
+    Admin admin = 1;
+}
+
+message AdminResponse{
+    Admin admin = 1;
+}
+
+message GenerateUserID{
+   string email = 1;
+}
+
+message ReturnUserID{
+    string id = 1;
+}
+
+message DeleteUser{
+    string email = 1;
+}
+
+message DeleteUserResponse {
+    string message = 1;
+}
+
+service AdminService {
+    rpc GenerateUserID(GenerateUserID) returns (ReturnUserID);
+    rpc RegisterAdminRequest(RegisterAdminRequest) returns (AdminResponse);
+    rpc GetAdminByIdRequest(GetAdminByIdRequest) returns (AdminResponse);
+    rpc DeleteUser(DeleteUser) returns (DeleteUserResponse);
+}
