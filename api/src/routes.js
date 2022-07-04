@@ -19,5 +19,4 @@ router.post('/sessions', SessionController.store)
 router.use(authMiddleware);
 
 
-
 module.exports = router;

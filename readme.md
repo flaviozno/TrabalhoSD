@@ -10,7 +10,20 @@ Aluno: Flávio Vezono Filho - 11921BCC014
 - É necessario criar um docker com mongoose para conectar com a api
 - Execute um ``` npm install``` / ``` yarn``` dentro da pasta ```./api``` ```./grpc/```
 - Em ambas as pastas, execute ``` yarn dev```
+- Talvez seja necessario executar ```npm install -g node-gyp``` para rodar o **mosca**.
 
+
+## Run
+
+  Para rodar, basta abrir o [Insominio](https://insomnia.rest/download) e importar o arquivo **Insomnia_2022-07-03.json**. Com a api e o grpc rodando será possivel realizar os teste de:
+
+  - Adicionar um ADMIN
+  - Criar um user
+  - Deletar um user
+  - Consultar um ADMIN e um USER
+  - Update em um user
+
+  A api foi criada usando [Express](https://expressjs.com/). Porém comecei a implementar a mqtt junto com o grpc para cadastrar os dados no banco do **Mongo**
 
 ```bash
   docker run -d --name=mongoDocker -p 27017:27017 bitnami/mongodb

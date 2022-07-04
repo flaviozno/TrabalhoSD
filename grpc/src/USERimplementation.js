@@ -29,7 +29,6 @@ module.exports = {
             else {
                 const user = await User.create({ id, email, username, password })
 
-
                 return callback(null, { ...user.toObject() });
             }
         }
