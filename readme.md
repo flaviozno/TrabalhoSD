@@ -33,6 +33,12 @@ Aluno: Flávio Vezono Filho - 11921BCC014
 
 - [Mongoodb](https://www.mongodb.com/try/download/compass)
 - [Node](https://nodejs.org/en/download/)
+
+  ## Infos
+
+  As implementações do grpc então na pasta ***proto***. A api fornece uma roda por meio do express e dentro da pasta ***controlles*** as funções do grpc são chamadas. A api roda em ***http://localhost:3333*** ,o grpc está setado para rodar na porta ***3334*** e o mongo na porta ***27017***. Dentro do mongo, será gerado um database chamada ***TrabalhoSD*** com as collection admin e user.
+
+  A idéia é substituir o express pelo mqtt. Porém estou com dificuldades para rodar ele no nodejs.
 ## Authors
 
 - [@flaviozno](https://www.github.com/flaviozno)
