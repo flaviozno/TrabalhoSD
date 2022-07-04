@@ -4,6 +4,10 @@
 Aluno: Flávio Vezono Filho - 11921BCC014
 
 
+
+## SO
+
+Ubuntu 20.04 LTS
 ## Installation
 
 - É preciso ter o node instalado (v16.15.1)
