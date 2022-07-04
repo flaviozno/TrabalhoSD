@@ -15,7 +15,7 @@ Aluno: Flávio Vezono Filho - 11921BCC014
 
 ## Run
 
-  Para rodar, basta abrir o [Insominio](https://insomnia.rest/download) e importar o arquivo **Insomnia_2022-07-03.json**. Com a api e o grpc rodando será possivel realizar os teste de:
+  Para rodar, basta abrir o [Insomnia](https://insomnia.rest/download) e importar o arquivo **Insomnia_2022-07-03.json**. Com a api e o grpc rodando será possivel realizar os teste de:
 
   - Adicionar um ADMIN
   - Criar um user
